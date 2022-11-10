@@ -31,15 +31,9 @@ resource "aws_secretsmanager_secret" "public-key" {
 resource "aws_secretsmanager_secret_version" "keypair" {
   secret_id     = aws_secretsmanager_secret.private-key.id
   secret_string = module.key_pair.private_key_pem
-  tags = {
-    "name" = "matthewDavis"
-  }
 }
 
 resource "aws_secretsmanager_secret_version" "pub_keypair" {
   secret_id     = aws_secretsmanager_secret.public-key.id
   secret_string = module.key_pair.public_key_pem
-  tags = {
-    "name" = "matthewDavis"
-  }
 }
